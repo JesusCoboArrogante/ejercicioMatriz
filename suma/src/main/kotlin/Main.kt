@@ -40,7 +40,7 @@ fun suma (matriz: Array<Array<Int>>): Int{
 
 
 
-fun colocar (matriz: Array<Array<Int>>, vector: IntArray){
+fun colocar (matriz: Array<Array<Int>>, vector: IntArray){ 
     for (i in matriz.indices){
         for (j in matriz.indices){
 
