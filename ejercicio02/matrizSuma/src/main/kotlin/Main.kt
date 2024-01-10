@@ -1,35 +1,33 @@
 
 
 fun main(args: Array<String>) {
-    val matriz = arrayOf(
-        floatArrayOf(02.5f,-6.3f,14.7f,04.0f,0.0f),
-        floatArrayOf(10.8f,12.4f,-8.2f,05.5f,0.0f),
-        floatArrayOf(-7.2f,03.1f,17.7f,-9.1f,0.0f))
+    val matriz: Array<Array<Float>> = arrayOf(
+        arrayOf(2.5f,-6.3f,14.7f,4.0f),
+        arrayOf(10.8f,12.4f,-8.2f,5.5f),
+        arrayOf(-7.2f,3.1f,17.7f,-9.1f)
+        )
 
     val newMatriz = arrayOf(
-        floatArrayOf(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f),
-        floatArrayOf(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f),
-        floatArrayOf(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f),
-        floatArrayOf(0.0f,0.0f,0.0f,0.0f,0.0f,0.0f))
+        floatArrayOf(0.0f,0.0f,0.0f,0.0f,0.0f),
+        floatArrayOf(0.0f,0.0f,0.0f,0.0f,0.0f),
+        floatArrayOf(0.0f,0.0f,0.0f,0.0f,0.0f),
+        floatArrayOf(0.0f,0.0f,0.0f,0.0f,0.0f)
+    )
 
     for (i in matriz.indices){
-        for (j in matriz.indices){
+        for (j in 0.. matriz.size){
             print("[${matriz[i][j]}]")
         }
         println()
     }
+    println("--------------------------------------")
 
     copia(matriz,newMatriz)
     fila(newMatriz)
     columna(newMatriz)
 
-
-
-    println("--------------------------------------")
-
-
     for (i in newMatriz.indices){
-        for (j in newMatriz.indices){
+        for (j in 0 .. newMatriz.size){
             print("[${newMatriz[i][j]}]")
         }
         println()
@@ -40,16 +38,10 @@ fun main(args: Array<String>) {
 }
 
 
-
-fun copia(matriz: Array<FloatArray>, newMatriz: Array<FloatArray>) {
+fun copia(matriz: Array<Array<Float>>, newMatriz: Array<FloatArray>) {
     for (i in matriz.indices){
-        for (j in matriz.indices){
-           if (i < 4){
+        for (j in 0 .. matriz.size){
                newMatriz[i][j] = matriz[i][j]
-           }
-
-
-
         }
 
     }
@@ -59,8 +51,8 @@ fun copia(matriz: Array<FloatArray>, newMatriz: Array<FloatArray>) {
 fun fila(newMatriz: Array<FloatArray>){
 
     for (i in newMatriz.indices){
-        for (j in newMatriz.indices){
-           if (j < 4){
+        for (j in 0 ..newMatriz.size){
+           if (i < 3 && j < 4  ){
                newMatriz[i][4] += newMatriz[i][j]
            }
 
@@ -72,19 +64,20 @@ fun fila(newMatriz: Array<FloatArray>){
 fun columna(newMatriz: Array<FloatArray>) {
 
     for (i in newMatriz.indices){
-        for (j in newMatriz.indices){
+        for (j in 0 ..newMatriz.size){
             var prueba = 0.0f
-            if ( newMatriz[i][j] > 0 && j < 4 && i < 4 ){
+            if ( i < 3 && j < 4 ){
                 newMatriz[3][j] += newMatriz[i][j]
-                prueba += newMatriz[i][j]
 
 
-            }else if(newMatriz[i][j] < 0){
-                newMatriz[3][j] -= newMatriz[i][j]
+
             }
 
 
+
+
         }
+
     }
 }
 
