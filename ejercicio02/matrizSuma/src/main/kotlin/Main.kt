@@ -14,28 +14,39 @@ fun main(args: Array<String>) {
         floatArrayOf(0.0f,0.0f,0.0f,0.0f,0.0f)
     )
 
-    for (i in matriz.indices){
-        for (j in 0.. matriz.size){
-            print("[${matriz[i][j]}]")
-        }
-        println()
-    }
-    println("--------------------------------------")
 
+
+    imprimirPrimera(matriz)
+    println()
     copia(matriz,newMatriz)
     fila(newMatriz)
     columna(newMatriz)
+    imprimirSegunda(newMatriz)
 
+
+
+
+
+}
+
+fun imprimirSegunda(newMatriz: Array<FloatArray>) {
     for (i in newMatriz.indices){
         for (j in 0 .. newMatriz.size){
             print("[${newMatriz[i][j]}]")
         }
         println()
     }
-
-
-
 }
+
+fun imprimirPrimera(matriz: Array<Array<Float>>) {
+    for (i in matriz.indices){
+        for (j in 0.. matriz.size){
+            print("[${matriz[i][j]}]")
+        }
+        println()
+    }
+}
+
 
 
 fun copia(matriz: Array<Array<Float>>, newMatriz: Array<FloatArray>) {
