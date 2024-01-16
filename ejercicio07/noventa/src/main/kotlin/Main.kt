@@ -1,11 +1,12 @@
 const val MAX = 5
 fun main(args: Array<String>) {
-val matrizLectura = arrayOf(arrayOf(1,2,3,4,5), arrayOf(6,7,8,9,10), arrayOf(11,12,13,14,15), arrayOf(16,17,18,19,20), arrayOf(21,22,23,24,25))
+val matrizOriginaral = arrayOf(arrayOf(1,2,3,4,5), arrayOf(6,7,8,9,10), arrayOf(11,12,13,14,15), arrayOf(16,17,18,19,20), arrayOf(21,22,23,24,25))
     val matrizEscritura = Array(MAX) {IntArray(MAX)}
+  
 
-    imprimir(matrizLectura)
+    imprimir(matrizOriginaral)
     println()
-    clonar(matrizLectura,matrizEscritura)
+    clonar(matrizOriginaral,matrizEscritura)
 
 
 
