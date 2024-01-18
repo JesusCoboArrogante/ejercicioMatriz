@@ -19,14 +19,10 @@ fun main(args: Array<String>) {
     c2 = readln().toIntOrNull()?:0
 
     columna(matrizO, matrizP, c1, c2)
-
-    println()
-
+    
     nada(matrizP, matrizO)
-
     imprimirMatrizO(matrizO)
     println()
-
     imprimir(matrizP)
 
 }
