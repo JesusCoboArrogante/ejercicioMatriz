@@ -1,6 +1,8 @@
 fun main(args: Array<String>) {
     var columna = 0
     var fila = 0
+    var r1 = 0
+    var r2 = 0
     var matrizO = arrayOf(
         arrayOf("[ ]","[ ]","[ ]","[ ]","[ ]"),
         arrayOf("[ ]","[ ]","[ ]","[ ]","[ ]"),
@@ -8,7 +10,7 @@ fun main(args: Array<String>) {
         arrayOf("[ ]","[ ]","[ ]","[ ]","[ ]"),
         arrayOf("[ ]","[ ]","[ ]","[ ]","[ ]")
     )
-    colocarMosca(matrizO)
+    colocarMosca(matrizO,r1,r2)
     do {
 
 
@@ -25,33 +27,40 @@ fun main(args: Array<String>) {
 
 }
 
+fun colocarMosca(matrizO: Array<Array<String>>, r1: Int, r2: Int):Int {
+
+    matrizO[r1][r2] = "[i]"
+
+    var i = (0..4).random()
+    r1 = i
+    var j = (0..4).random()
+    r2 = j
+    matrizO[i][j] = "[M]"
+    return r1 r2
+}
+
 fun uff(matrizO: Array<Array<String>>, fila: Int, columna: Int) {
 
                 if ( fila+1 < matrizO.size || fila -1 > 0 || matrizO[columna][fila+1] == "[M]" || matrizO[columna][fila-1] == "[M]" ){
                     imprimirMatriz(matrizO)
                     println("1")
-                    colocarMosca(matrizO)
 
 
-                }
-                if( columna+1 < matrizO.size || columna -1 > 0 || matrizO[columna +1][fila] == "[M]" || matrizO[columna-1][fila] == "[M]"){
+
+                }else if( columna+1 < matrizO.size || columna -1 > 0 || matrizO[columna +1][fila] == "[M]" || matrizO[columna-1][fila] == "[M]"){
                     imprimirMatriz(matrizO)
                     println("2")
-                    colocarMosca(matrizO)
 
 
-                }
-                if(matrizO[columna +1][fila-1] == "[M]" || matrizO[columna+1][fila+1] == "[M]"){
+                } else if(matrizO[columna +1][fila-1] == "[M]" || matrizO[columna+1][fila+1] == "[M]"){
                     imprimirMatriz(matrizO)
                     println("3")
-                    colocarMosca(matrizO)
 
 
-                }
-                if(matrizO[columna -1][fila-1] == "[M]" || matrizO[columna-1][fila+1] == "[M]"){
+                }else if(matrizO[columna -1][fila-1] == "[M]" || matrizO[columna-1][fila+1] == "[M]"){
                     imprimirMatriz(matrizO)
                     println("4")
-                    colocarMosca(matrizO)
+
 
 
                 }
@@ -77,11 +86,5 @@ fun muerta(matrizO: Array<Array<String>>, columna: Int, fila: Int):Boolean {
         return muerte
 }
 
-fun colocarMosca(matrizO: Array<Array<String>>) {
 
-
-    var i = (0..4).random()
-    var j = (0..4).random()
-    matrizO[2][2] = "[M]"
-}
 
