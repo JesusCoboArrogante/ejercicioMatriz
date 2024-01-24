@@ -3,6 +3,7 @@ fun main(args: Array<String>) {
     var fila = 0
     var r1 = 0
     var r2 = 0
+
     var matrizO = arrayOf(
         arrayOf("[ ]","[ ]","[ ]","[ ]","[ ]"),
         arrayOf("[ ]","[ ]","[ ]","[ ]","[ ]"),
@@ -10,15 +11,15 @@ fun main(args: Array<String>) {
         arrayOf("[ ]","[ ]","[ ]","[ ]","[ ]"),
         arrayOf("[ ]","[ ]","[ ]","[ ]","[ ]")
     )
-    colocarMosca(matrizO,r1,r2)
+    colocarMosca(matrizO)
     do {
 
 
         imprimirMatriz(matrizO)
-       println("en que columna esta")
-       columna= readln().toIntOrNull()?:0
-        println("en que fila esta")
-        fila= readln().toIntOrNull()?:0
+       println("en que fila esta")
+       fila= readln().toIntOrNull()?:0
+        println("en que columna esta")
+        columna= readln().toIntOrNull()?:0
         uff(matrizO,fila,columna)
 
 
@@ -27,43 +28,56 @@ fun main(args: Array<String>) {
 
 }
 
-fun colocarMosca(matrizO: Array<Array<String>>, r1: Int, r2: Int):Int {
+fun colocarMosca(matrizO: Array<Array<String>>){
+    for (i in matrizO.indices){
+        for (j in matrizO.indices){
+            if (matrizO[i][j] == "[M]"){
+                matrizO[i][j] = "[ ]"
+            }
+        }
 
-    matrizO[r1][r2] = "[i]"
+    }
+
+
 
     var i = (0..4).random()
-    r1 = i
     var j = (0..4).random()
-    r2 = j
+
     matrizO[i][j] = "[M]"
-    return r1 r2
+
+
+
 }
 
-fun uff(matrizO: Array<Array<String>>, fila: Int, columna: Int) {
+fun uff(matrizO: Array<Array<String>>, columna: Int, fila: Int) {
 
-                if ( fila+1 < matrizO.size || fila -1 > 0 || matrizO[columna][fila+1] == "[M]" || matrizO[columna][fila-1] == "[M]" ){
+                if ( columna + 1 < matrizO.size && columna -1 > 0 || matrizO[fila][columna + 1] == "[M]" && matrizO[fila][columna-1] == "[M]" ){
                     imprimirMatriz(matrizO)
+                    colocarMosca(matrizO)
                     println("1")
 
 
 
-                }else if( columna+1 < matrizO.size || columna -1 > 0 || matrizO[columna +1][fila] == "[M]" || matrizO[columna-1][fila] == "[M]"){
+                }else if( fila + 1 < matrizO.size && fila -1 > 0 || matrizO[fila + 1][columna] == "[M]" && matrizO[fila-1][columna] == "[M]"){
                     imprimirMatriz(matrizO)
+                    colocarMosca(matrizO)
                     println("2")
 
 
-                } else if(matrizO[columna +1][fila-1] == "[M]" || matrizO[columna+1][fila+1] == "[M]"){
+                } else if(fila + 1 < matrizO.size || columna -1 > 0 || columna + 1 < matrizO.size || matrizO[fila +1][columna-1] == "[M]" && matrizO[fila+1][columna+1] == "[M]"){
                     imprimirMatriz(matrizO)
+                    colocarMosca(matrizO)
                     println("3")
 
 
-                }else if(matrizO[columna -1][fila-1] == "[M]" || matrizO[columna-1][fila+1] == "[M]"){
+                }else if(fila -1 > 0 || columna -1 > 0 || columna + 1 < matrizO.size || matrizO[fila -1][columna-1] == "[M]" && matrizO[fila-1][columna+1] == "[M]"){
                     imprimirMatriz(matrizO)
+                    colocarMosca(matrizO)
                     println("4")
 
 
 
-                }
+                }else("no estas ni cerca")
 
 }
 
