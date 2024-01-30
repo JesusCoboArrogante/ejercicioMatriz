@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
     do {
 
 
-        imprimirMatriz(matrizO)
+
        println("en que fila esta")
        fila= readln().toIntOrNull()?:0
         println("en que columna esta")
@@ -24,6 +24,7 @@ fun main(args: Array<String>) {
 
 
     }while ( muerta(matrizO, columna,fila))
+    println("muerta")
 
 
 }
@@ -50,34 +51,31 @@ fun colocarMosca(matrizO: Array<Array<String>>){
 }
 
 fun uff(matrizO: Array<Array<String>>, columna: Int, fila: Int) {
+                if (muerta(matrizO, columna, fila)){}
 
-                if ( columna + 1 < matrizO.size && columna -1 > 0 || matrizO[fila][columna + 1] == "[M]" && matrizO[fila][columna-1] == "[M]" ){
+                else if ((columna + 1 < matrizO.size) && (matrizO[fila][columna + 1] == "[M]" || (columna - 1 >= 0 && matrizO[fila][columna - 1] == "[M]"))) {
                     imprimirMatriz(matrizO)
                     colocarMosca(matrizO)
-                    println("1")
+                    println("casi pero no")
 
 
 
-                }else if( fila + 1 < matrizO.size && fila -1 > 0 || matrizO[fila + 1][columna] == "[M]" && matrizO[fila-1][columna] == "[M]"){
+                }else if ((fila + 1 < matrizO.size) && (matrizO[fila + 1][columna] == "[M]" || (fila - 1 >= 0 && matrizO[fila - 1][columna] == "[M]"))) {
                     imprimirMatriz(matrizO)
                     colocarMosca(matrizO)
-                    println("2")
+                    println("casi pero no")
 
+                }else if ((fila + 1 < matrizO.size || fila -1< 0 && columna - 1 > 0) || (columna + 1 < matrizO.size && matrizO[fila - 1][columna - 1] == "[M]" && matrizO[fila - 1][columna + 1] == "[M]")) {
 
-                } else if(fila + 1 < matrizO.size || columna -1 > 0 || columna + 1 < matrizO.size || matrizO[fila +1][columna-1] == "[M]" && matrizO[fila+1][columna+1] == "[M]"){
                     imprimirMatriz(matrizO)
                     colocarMosca(matrizO)
-                    println("3")
-
-
-                }else if(fila -1 > 0 || columna -1 > 0 || columna + 1 < matrizO.size || matrizO[fila -1][columna-1] == "[M]" && matrizO[fila-1][columna+1] == "[M]"){
-                    imprimirMatriz(matrizO)
-                    colocarMosca(matrizO)
-                    println("4")
+                    println("casi pero no")
 
 
 
-                }else("no estas ni cerca")
+                }
+
+
 
 }
 
@@ -92,9 +90,8 @@ fun imprimirMatriz(matrizO: Array<Array<String>>) {
 
 fun muerta(matrizO: Array<Array<String>>, columna: Int, fila: Int):Boolean {
     var muerte = true
-        if (matrizO[columna][fila] == "[M]"){
+        if (matrizO[fila][columna] == "[M]"){
             muerte = false
-            println("muerta")
         }
 
         return muerte

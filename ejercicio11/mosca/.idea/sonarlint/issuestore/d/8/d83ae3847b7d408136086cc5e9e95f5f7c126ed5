@@ -1,7 +1,11 @@
 
-Qkotlin:S1172"-Remove this unused function parameter "args".(¥å¥ûÿÿÿÿ8îøìÙÓ1
-?kotlin:S6615" Remove this useless initializer.(‚ÇĞš8ñøìÙÓ1
-Dkotlin:S6615" Remove this useless initializer.(ÑíË­ÿÿÿÿÿ8ñøìÙÓ1
-Fkotlin:S1481"'Remove this unused "r2" local variable.(’¶ĞÎ8ıøìÙÓ1
-Kkotlin:S1481"'Remove this unused "r1" local variable.(À‚ßœÿÿÿÿÿ8şøìÙÓ1
-akotlin:S65116"=Merge chained "if" statements into a single "when" statement.(¼İí¥ûÿÿÿÿ8ŠùìÙÓ1
+Qkotlin:S1172"-Remove this unused function parameter "args".(¥å¥ûÿÿÿÿ8¢ä¦¥Õ1
+?kotlin:S6615" Remove this useless initializer.(‚ÇĞš8´ä¦¥Õ1
+Dkotlin:S6615" Remove this useless initializer.(ÑíË­ÿÿÿÿÿ8¶ä¦¥Õ1
+Lkotlin:S1086")Either remove or fill this block of code.(®üŠùşÿÿÿÿ8¤Ò§¥Õ1
+Fkotlin:S1481"'Remove this unused "r2" local variable.(’¶ĞÎ8ää¦¥Õ1
+Kkotlin:S1481"'Remove this unused "r1" local variable.(À‚ßœÿÿÿÿÿ8åä¦¥Õ1
+lkotlin:S1192;"MDefine a constant instead of duplicating this literal "casi pero no" 3 times.(ÁêòŒ8ğö±¥Õ1
+kkotlin:S1871?"LThis branch's code block is the same as the block for the branch on line 56.(Ö¦í8·Ù±¥Õ1
+pkotlin:S1871D"LThis branch's code block is the same as the block for the branch on line 56.(“å Åúÿÿÿÿ8öö±¥Õ1
+akotlin:S65116"=Merge chained "if" statements into a single "when" statement.(®üŠùşÿÿÿÿ8å¦¥Õ1
